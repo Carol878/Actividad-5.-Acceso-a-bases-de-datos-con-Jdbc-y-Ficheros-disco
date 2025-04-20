@@ -1,6 +1,8 @@
 package principales;
 import java.util.Scanner;
 
+import modelo.dao.ClienteDaoImplMy8Jdbc;
+
 public class GestionClientes {
 	
 	public static void main(String[] args){
@@ -16,7 +18,6 @@ public class GestionClientes {
 			case "1": 
 				altaCliente(scLeerTeclado, aux);
 				System.out.println("Alta del Cliente");
-				
 				break;
 			case "2": 
 				buscaCliente(scLeerTeclado, aux);
@@ -48,6 +49,7 @@ public class GestionClientes {
 		}
 		while (menu != "7");
 	}
+	
 	public static void altaCliente(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
 		System.out.println("Dime el CIF del nuevo cliente: ");
 		String guardarCif = scanner.next();
@@ -61,36 +63,36 @@ public class GestionClientes {
 		float guardarFactAnual = scanner.nextFloat();
 		System.out.println("Dime el número de empleados del nuevo cliente: ");
 		int guardarNumeroEmpleados = scanner.nextInt();
-		aux.altaCliente(guardarCif, guardarNombre, guardarApellido, guardarDomicilio, guardarFactAnual, guardarNumeroEmpleados);
+		//aux.altaCliente(guardarCif, guardarNombre, guardarApellido, guardarDomicilio, guardarFactAnual, guardarNumeroEmpleados);
 	}
 	
 	public static void buscaCliente(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
 		System.out.println("Dime el CIF del cliente a buscar: ");
 		String buscarCif = scanner.next();
-		aux.buscarClientes(buscarCif);
+		aux.buscarUno(buscarCif);
 	}
 	
 	public static void mostrarClientes(ClienteDaoImplMy8Jdbc aux) {
 		System.out.println("Dime el CIF del nuevo cliente: ");
-		aux.mostrarTodos();
+		aux.buscarTodos();
 	}
 	
 	public static void eliminarCliente(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
 		System.out.println("Dime el CIF del cliente que vamos a eliminar: ");
 		String eliminarCif = scanner.next();
-		aux.eliminarCliente(eliminarCif));
+		aux.eliminarCliente(eliminarCif);
 	}
 	
 	public static void exportarFichero(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
 		System.out.println("Dime el CIF del cliente que vamos a exportar: ");
 		String exportarCif = scanner.next();
-		aux.exortarCliente();
+		//aux.exortarCliente();
 	}
 	
 	public static void importarFichero(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
 		System.out.println("Dime el CIF del cliente que vamos a importar: ");
 		String importarCif = scanner.next();
-		aux.importarCliente();
+		//aux.importarCliente();
 	}
 }
 
