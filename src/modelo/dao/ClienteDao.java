@@ -11,6 +11,4 @@ public interface ClienteDao {
 	String eliminarCliente (String cif);
 	//exportarFichero();
 	//importarFichero();
-	
-	
 }
