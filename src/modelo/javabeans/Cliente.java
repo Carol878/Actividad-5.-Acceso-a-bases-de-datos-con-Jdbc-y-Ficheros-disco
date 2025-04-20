@@ -116,7 +116,4 @@ public class Cliente implements Serializable {
 		return Objects.equals(cif, other.cif);
 	}
 	
-	
-	
-	
 }
