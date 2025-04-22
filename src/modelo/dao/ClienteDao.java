@@ -10,6 +10,6 @@ public interface ClienteDao {
 	Cliente buscarUno (String cif);
 	List<Cliente> buscarTodos();
 	boolean eliminarCliente (String cif);
-	//exportarFichero();
-	//importarFichero();
+	public String exportar(String nombreFichero);
+	public List<Cliente> importar(String nombreFichero);
 }

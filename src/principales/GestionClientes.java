@@ -14,8 +14,8 @@ public class GestionClientes {
 
 		
 		do {
-			System.out.println("Dime que opción quieres realizar: 1 Alta del Cliente, 2 Buscar un Cliente, 3 Mostrar Todos, 4 Eliminar un cliente, "
-					+"5 Exportar a fichero, 6 Importar desde fichero, 7 Salir");
+			System.out.println("Dime que opción quieres realizar: \n1 Alta del Cliente \n2 Buscar un Cliente \n3 Mostrar Todos \n4 Eliminar un cliente, "
+					+"\n5 Exportar a fichero \n6 Importar desde fichero \n7 Salir");
 			menu = scLeerTeclado.next();
 			switch (menu){
 			case "1": 
@@ -31,10 +31,10 @@ public class GestionClientes {
 				eliminarCliente(scLeerTeclado, aux);
 				break;
 			case "5": 
-				exportarFichero(scLeerTeclado, aux);
+				exportarFichero(aux);
 				break;
 			case "6": 
-				importarFichero(scLeerTeclado, aux);
+				importarFichero(aux);
 				break;
 			case "7": 
 				System.out.println("Salir");
@@ -104,16 +104,13 @@ public class GestionClientes {
 		}
 	}
 	
-	public static void exportarFichero(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
-		System.out.println("Dime el CIF del cliente que vamos a exportar: ");
-		String exportarCif = scanner.next();
-		//aux.exortarCliente();
+	public static void exportarFichero(ClienteDaoImplMy8Jdbc aux) {
+		
+		aux.exportar("bbdd");
 	}
 	
-	public static void importarFichero(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
-		System.out.println("Dime el CIF del cliente que vamos a importar: ");
-		String importarCif = scanner.next();
-		//aux.importarCliente();
+	public static void importarFichero(ClienteDaoImplMy8Jdbc aux) {
+		aux.importar("bbdd");
 	}
 }
 
