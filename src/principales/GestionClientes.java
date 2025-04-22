@@ -1,7 +1,9 @@
 package principales;
+import java.util.List;
 import java.util.Scanner;
 
 import modelo.dao.ClienteDaoImplMy8Jdbc;
+import modelo.javabeans.Cliente;
 
 public class GestionClientes {
 	
@@ -9,6 +11,7 @@ public class GestionClientes {
 		String menu = "";
 		Scanner scLeerTeclado = new Scanner(System.in);
 		ClienteDaoImplMy8Jdbc aux = new ClienteDaoImplMy8Jdbc();
+
 		
 		do {
 			System.out.println("Dime que opción quieres realizar: 1 Alta del Cliente, 2 Buscar un Cliente, 3 Mostrar Todos, 4 Eliminar un cliente, "
@@ -17,27 +20,21 @@ public class GestionClientes {
 			switch (menu){
 			case "1": 
 				altaCliente(scLeerTeclado, aux);
-				System.out.println("Alta del Cliente");
 				break;
 			case "2": 
 				buscaCliente(scLeerTeclado, aux);
-				System.out.println("Buscar un Cliente");
 				break;
 			case "3": 
 				mostrarClientes(aux);
-				System.out.println("Mostrar todos");
 				break;
 			case "4": 
 				eliminarCliente(scLeerTeclado, aux);
-				System.out.println("Eliminar un cliente");
 				break;
 			case "5": 
 				exportarFichero(scLeerTeclado, aux);
-				System.out.println("Exportar un fichero");
 				break;
 			case "6": 
 				importarFichero(scLeerTeclado, aux);
-				System.out.println("Importar desde fichero");
 				break;
 			case "7": 
 				System.out.println("Salir");
@@ -63,7 +60,12 @@ public class GestionClientes {
 		float guardarFactAnual = scanner.nextFloat();
 		System.out.println("Dime el número de empleados del nuevo cliente: ");
 		int guardarNumeroEmpleados = scanner.nextInt();
-		//aux.altaCliente(guardarCif, guardarNombre, guardarApellido, guardarDomicilio, guardarFactAnual, guardarNumeroEmpleados);
+		
+		// Llamo al constructor y añado datos de cliente
+		Cliente cliente = new Cliente(guardarCif, guardarNombre, guardarApellido, guardarDomicilio, guardarFactAnual, guardarNumeroEmpleados);
+		aux.altaCliente(cliente);
+		System.out.println("Cliente añadido con ÉXITO");
+		
 	}
 	
 	public static void buscaCliente(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
@@ -73,8 +75,12 @@ public class GestionClientes {
 	}
 	
 	public static void mostrarClientes(ClienteDaoImplMy8Jdbc aux) {
-		System.out.println("Dime el CIF del nuevo cliente: ");
-		aux.buscarTodos();
+		// Guardo la lista de clientes de base ClienteDaoImp en clientes 
+		List<Cliente> clientes = aux.buscarTodos();
+		// Saco por pantalla clientes de BBDD
+		for (int i = 0; i < clientes.size(); i++) {
+			System.out.println(clientes.get(i));
+		}
 	}
 	
 	public static void eliminarCliente(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
@@ -95,5 +101,6 @@ public class GestionClientes {
 		//aux.importarCliente();
 	}
 }
+
 
 

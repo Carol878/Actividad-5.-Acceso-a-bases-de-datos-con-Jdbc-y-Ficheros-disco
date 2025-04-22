@@ -14,7 +14,7 @@ public class ClienteDaoImplMy8Jdbc extends AbsGenericoDaoImpl implements Cliente
 
 	@Override
 	public int altaCliente(Cliente cliente) {
-		sql = "insert into clientes (clientes_cif, clientes_nombre, clientes_apellidos, clientes_domicilio, clientes_facturacion_anual, clientes_numero_empleados) values (?,?,?,?,?,?)";
+		sql = "insert into clientes (cif, nombre, apellidos, domicilio, facturacion_anual, numero_empleados) values (?,?,?,?,?,?)";
 		filas = 0;
 		 try {
 		ps = conn.prepareStatement(sql);
