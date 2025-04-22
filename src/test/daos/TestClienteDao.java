@@ -21,6 +21,13 @@ public class TestClienteDao {
 	}
 	
 	public static void alta() {
+		System.out.println("\nAlta nuevo cliente\n");
+		Cliente cliente = new Cliente ("C86446897", "Ana", "Garcia Ruiz","Barcelona", 120000.00, 1600);
+		
+		System.out.println("Cliente dado de alta (me espero 1)" + cdao.altaCliente(cliente));
+		
+		Cliente cliente2 = new Cliente ("A11111111","Eva","González Pérez","Madrid",	850000.00, 20);
+		System.out.println("El cliente ya está dado de alta (me espero 0)" + cdao.altaCliente(cliente2));
 		
 	}
 	
