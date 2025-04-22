@@ -47,12 +47,12 @@ public class ClienteDaoImplMy8Jdbc extends AbsGenericoDaoImpl implements Cliente
 			
 			if(rs.next()) {
 				cliente = new Cliente();
-				cliente.setCif(rs.getString("clientes_cif"));
-				cliente.setNombre(rs.getString("clientes_nombre"));
-				cliente.setApellidos(rs.getString("clientes_apellidos"));
-				cliente.setDomicilio(rs.getString("clientes_domicilio"));
-				cliente.setFacturacionAnual(rs.getDouble("clientes_facturacion_anual"));
-				cliente.setNumeroEmpleados(rs.getInt("clientes_numero_empleados"));
+				cliente.setCif(rs.getString("cif"));
+				cliente.setNombre(rs.getString("nombre"));
+				cliente.setApellidos(rs.getString("apellidos"));
+				cliente.setDomicilio(rs.getString("domicilio"));
+				cliente.setFacturacionAnual(rs.getDouble("facturacion_anual"));
+				cliente.setNumeroEmpleados(rs.getInt("numero_empleados"));
 				
 			}
 			
@@ -92,9 +92,19 @@ public class ClienteDaoImplMy8Jdbc extends AbsGenericoDaoImpl implements Cliente
 	}
 
 	@Override
-	public String eliminarCliente(String cif) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean eliminarCliente(String cif) {	
+			boolean resultado = false;
+			sql = "DELETE FROM clientes WHERE cif = ?";
+			try {
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, cif);
+				resultado = ps.execute();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return resultado;
 	}
 
 }

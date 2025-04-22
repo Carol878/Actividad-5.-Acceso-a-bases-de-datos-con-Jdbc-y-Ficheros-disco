@@ -9,7 +9,7 @@ public interface ClienteDao {
 	int altaCliente (Cliente cliente);
 	Cliente buscarUno (String cif);
 	List<Cliente> buscarTodos();
-	String eliminarCliente (String cif);
+	boolean eliminarCliente (String cif);
 	//exportarFichero();
 	//importarFichero();
 }

@@ -70,8 +70,17 @@ public class GestionClientes {
 	
 	public static void buscaCliente(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
 		System.out.println("Dime el CIF del cliente a buscar: ");
-		String buscarCif = scanner.next();
-		aux.buscarUno(buscarCif);
+		String buscarCif = scanner.next();	
+		Cliente cliente = aux.buscarUno(buscarCif);
+		// Si el cliente coincide con un cliente de BBDD sale por pantalla
+		if (cliente != null) {
+			System.out.println("Este es el cliente solicitado: ");
+			System.out.println(cliente.toString());
+		}
+		// Sino coincide no encontrado
+		else {
+			System.out.println("Cliente no encontrado ");
+		}
 	}
 	
 	public static void mostrarClientes(ClienteDaoImplMy8Jdbc aux) {
@@ -86,7 +95,13 @@ public class GestionClientes {
 	public static void eliminarCliente(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
 		System.out.println("Dime el CIF del cliente que vamos a eliminar: ");
 		String eliminarCif = scanner.next();
-		aux.eliminarCliente(eliminarCif);
+		boolean resultado = aux.eliminarCliente(eliminarCif);
+		if (resultado == true) {
+			System.out.println("Ups, error detectado");
+		}
+		else {
+			System.out.println("Cliente elimind@");
+		}
 	}
 	
 	public static void exportarFichero(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
