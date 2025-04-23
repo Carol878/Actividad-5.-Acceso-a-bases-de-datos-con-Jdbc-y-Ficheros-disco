@@ -139,21 +139,21 @@ public class ClienteDaoImplMy8Jdbc extends AbsGenericoDaoImpl implements Cliente
 	}
 	
 	@Override
-	public List<Cliente> importar(String nombreFichero){
+	public String importar(String nombreFichero){
+		String mensaje;
 		try {
-			File fichero = new File("c:/Users/Carol/OneDrive/Escritorio/UNIR/PROGRAMACIÓN 1/DAW JAVA 24-25/WS_DAW/NahirCarolinaTorres_Activ5/bbdd.txt"); //¿Dónde se encuentra y qué extensión tiene? 
+			File fichero = new File(nombreFichero);
 			Scanner leer = new Scanner(fichero);
 			// Busca si hay registro y en caso afirmativo lo trae a memoria
 			while(leer.hasNext()) {
 				System.out.println(leer.nextLine()); 
 			}
+			mensaje = "Clientes bien importados";
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			mensaje = "Fichero no existe";
 			e.printStackTrace();
 		}
-		
-		System.out.println("fin de programa");
-		return null;
+		return mensaje;
 	}
 
 }

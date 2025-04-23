@@ -11,5 +11,5 @@ public interface ClienteDao {
 	List<Cliente> buscarTodos();
 	boolean eliminarCliente (String cif);
 	public String exportar(String nombreFichero);
-	public List<Cliente> importar(String nombreFichero);
+	public String importar(String nombreFichero);
 }

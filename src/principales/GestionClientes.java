@@ -111,9 +111,10 @@ public class GestionClientes {
 	}
 	
 	public static void importarFichero(ClienteDaoImplMy8Jdbc aux) {
-		aux.importar("bbdd");
+		String mensaje = aux.importar("bbdd.txt");
+		System.out.println(mensaje);
 	}
+	
 }
-
 
 
