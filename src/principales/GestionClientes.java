@@ -37,14 +37,14 @@ public class GestionClientes {
 				importarFichero(aux);
 				break;
 			case "7": 
-				System.out.println("Salir");
+				System.out.println("Programa finalizado");
 				break;
 			default: 
 				System.out.println("Esa opción no está disponible, selecciona una correcta");
 				break;
 				}
 		}
-		while (menu != "7");
+		while (!menu.equals("7"));
 	}
 	
 	public static void altaCliente(Scanner scanner, ClienteDaoImplMy8Jdbc aux) {
