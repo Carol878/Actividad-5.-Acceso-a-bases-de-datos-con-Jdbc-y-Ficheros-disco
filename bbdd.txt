@@ -1,0 +1,5 @@
+Cliente [cif=5544453, nombre=pepa, apellidos=flores, domicilio=jgggjdgf, facturacionAnual=56.0, numeroEmpleados=55]
+Cliente [cif=A11111111, nombre=Eva, apellidos=González Pérez, domicilio=Madrid, facturacionAnual=850000.0, numeroEmpleados=20]
+Cliente [cif=A11111112, nombre=Ramón, apellidos=Benito Díaz, domicilio=Sevilla, facturacionAnual=1.5E7, numeroEmpleados=123]
+Cliente [cif=A22222222, nombre=Carlos, apellidos=March, domicilio=Madrid, facturacionAnual=1.2E7, numeroEmpleados=1500]
+Cliente [cif=B33333333, nombre=Sara, apellidos=Varas, domicilio=Sevilla, facturacionAnual=1500000.0, numeroEmpleados=345]

@@ -119,18 +119,17 @@ public class ClienteDaoImplMy8Jdbc extends AbsGenericoDaoImpl implements Cliente
 	@Override
 	public String exportar(String nombreFichero) {
 		String mensaje;
-		// Fuente el fichero en disco
-		File fichero = new File("C:\\Users\\Carol\\OneDrive\\Escritorio\\UNIR\\PROGRAMACIÓN 1\\DAW JAVA 24-25\\WS_DAW\\NahirCarolinaTorres_Activ5\\bbdd.txt"); //¿Dónde se encuentra y qué extensión tiene? 
-		// El flujo
-		String linea = null; //creamos fuera la variable pq dentro del try da problemas
 		try {
-			FileWriter fileWriter  = new FileWriter(fichero);
+			// Creo fichero donde se guardarán datos
+			FileWriter fileWriter  = new FileWriter(nombreFichero);
 			BufferedWriter bf = new BufferedWriter(fileWriter);
 			List<Cliente> clientes = buscarTodos();
 			for (int i = 0; i < clientes.size(); i++) {
 				// Grabo por lineas datos del cliente, transformo los datos de la lista en String con toString
 				bf.write(clientes.get(i).toString());
+				bf.newLine();
 			}
+			bf.close();
 			mensaje = "Clientes bien exportados";
 		} catch (IOException e) {
 			mensaje = "Fichero no existe";
@@ -142,7 +141,7 @@ public class ClienteDaoImplMy8Jdbc extends AbsGenericoDaoImpl implements Cliente
 	@Override
 	public List<Cliente> importar(String nombreFichero){
 		try {
-			File fichero = new File("C:\\Users\\Carol\\OneDrive\\Escritorio\\UNIR\\PROGRAMACIÓN 1\\DAW JAVA 24-25\\WS_DAW\\NahirCarolinaTorres_Activ5\\bbdd.txt"); //¿Dónde se encuentra y qué extensión tiene? 
+			File fichero = new File("c:/Users/Carol/OneDrive/Escritorio/UNIR/PROGRAMACIÓN 1/DAW JAVA 24-25/WS_DAW/NahirCarolinaTorres_Activ5/bbdd.txt"); //¿Dónde se encuentra y qué extensión tiene? 
 			Scanner leer = new Scanner(fichero);
 			// Busca si hay registro y en caso afirmativo lo trae a memoria
 			while(leer.hasNext()) {

@@ -105,8 +105,9 @@ public class GestionClientes {
 	}
 	
 	public static void exportarFichero(ClienteDaoImplMy8Jdbc aux) {
-		
-		aux.exportar("bbdd");
+		// Guardo mensaje de si exportar funciona correctamente
+		String mensaje= aux.exportar("bbdd.txt");
+		System.out.println(mensaje);
 	}
 	
 	public static void importarFichero(ClienteDaoImplMy8Jdbc aux) {
