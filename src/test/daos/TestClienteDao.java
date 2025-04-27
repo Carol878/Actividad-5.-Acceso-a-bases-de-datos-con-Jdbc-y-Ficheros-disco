@@ -29,7 +29,7 @@ import modelo.dao.ClienteDao;
  		System.out.println("El cliente ya está dado de alta (me espero 0)" + cdao.altaCliente(cliente2));
  
  	}
- 
+ /* Comprobamos que el cliente anterior se añadió correctamente y comprobamos BuscarCliente */
  	public static void uno() {
  		System.out.println("\nBuscar un cliente\n");
  		System.out.println("El cliente existe: "+ cdao.buscarUno("C86446897"));
@@ -51,11 +51,11 @@ import modelo.dao.ClienteDao;
  
  	public static void exportar() {
  		System.out.println("\nExportar fichero\n");
- 		
+ 		/* Creamos fichero y añadimos datos de BBDD */
  		String nombreFichero = "clientes_exportados.txt";
         String resultado = cdao.exportar(nombreFichero);
         System.out.println(resultado);
- 		
+ 		/* Comprobamos si se creo el fichero correctamente e informamos del resultado */
  		File file = new File(nombreFichero);
         if (file.exists()) {
             System.out.println("El archivo fue creado correctamente.");
@@ -63,7 +63,7 @@ import modelo.dao.ClienteDao;
             System.out.println("Error al crear el archivo.");
         }
  	}
- 
+  
  	public static void importar() {
  		System.out.println("\nImportar fichero\n");
  		
